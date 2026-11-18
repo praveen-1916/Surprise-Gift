@@ -1,0 +1,49 @@
+.trail {
+  position: fixed;
+  /* centred without transform, so the entrance animation can't push it off-centre */
+  left: 0;
+  right: 0;
+  width: fit-content;
+  margin: 0 auto;
+  bottom: max(16px, env(safe-area-inset-bottom));
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(251, 244, 230, 0.82);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(184, 147, 90, 0.35);
+  box-shadow: var(--shadow-soft);
+}
+
+.trail__dot {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 0;
+  background: none;
+  border-radius: 50%;
+  color: rgba(154, 123, 98, 0.5);
+  cursor: not-allowed;
+  transition:
+    color 0.3s ease,
+    transform 0.3s var(--ease-out);
+}
+
+.trail__dot.is-unlocked {
+  color: var(--rose);
+  cursor: pointer;
+}
+
+.trail__dot.is-unlocked:hover {
+  transform: scale(1.2);
+}
+
+.trail__dot.is-current {
+  color: var(--burgundy);
+  cursor: default;
+}

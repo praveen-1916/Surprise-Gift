@@ -1,0 +1,187 @@
+:root {
+  --cream: #f6eddc;
+  --cream-deep: #efe0c6;
+  --paper: #fbf4e6;
+  --beige: #e3cfae;
+  --dusty-pink: #d8a6a6;
+  --rose: #c47c84;
+  --burgundy: #7a1f2b;
+  --burgundy-deep: #5a1420;
+  --brown: #6b4a36;
+  --brown-soft: #9a7b62;
+  --ink: #3d2a20;
+  --gold: #b8935a;
+
+  --font-script: 'Great Vibes', cursive;
+  --font-hand: 'Caveat', cursive;
+  --font-letter: 'Homemade Apple', 'Caveat', cursive;
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+
+  --shadow-soft: 0 10px 30px -12px rgba(61, 42, 32, 0.35);
+  --shadow-deep: 0 30px 60px -20px rgba(61, 42, 32, 0.5);
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* Grain texture, inline so no image request is needed */
+  --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.35 0 0 0 0 0.24 0 0 0 0 0.16 0 0 0 0.09 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+
+  color-scheme: light;
+  font-family: var(--font-serif);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  min-height: 100dvh;
+  background-color: var(--cream);
+  background-image:
+    var(--grain),
+    radial-gradient(ellipse at 20% 10%, rgba(216, 166, 166, 0.28), transparent 55%),
+    radial-gradient(ellipse at 85% 90%, rgba(184, 147, 90, 0.22), transparent 55%),
+    linear-gradient(160deg, #f8efdf 0%, #f1e2c9 100%);
+  background-attachment: fixed;
+  overflow-x: hidden;
+}
+
+/* Soft vignette like an old photograph */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(ellipse at center, transparent 55%, rgba(90, 60, 40, 0.22) 100%);
+  z-index: 50;
+}
+
+#root {
+  min-height: 100dvh;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+}
+
+::selection {
+  background: var(--dusty-pink);
+  color: var(--burgundy-deep);
+}
+
+:focus-visible {
+  outline: 2px dashed var(--burgundy);
+  outline-offset: 4px;
+}
+
+/* ── Shared screen layout ──────────────────────────────────── */
+.screen {
+  position: relative;
+  min-height: 100dvh;
+  width: 100%;
+  padding: clamp(24px, 5vw, 64px) 16px 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.screen-header {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto clamp(28px, 5vw, 48px);
+}
+
+.eyebrow {
+  font-family: var(--font-serif);
+  text-transform: uppercase;
+  letter-spacing: 0.35em;
+  font-size: 0.78rem;
+  color: var(--brown-soft);
+  margin: 0 0 8px;
+}
+
+.screen-title {
+  font-family: var(--font-script);
+  font-weight: 400;
+  font-size: clamp(2.6rem, 8vw, 4.4rem);
+  line-height: 1.05;
+  color: var(--burgundy);
+  margin: 0;
+  text-shadow: 0 2px 0 rgba(255, 255, 255, 0.5);
+}
+
+h1,
+h2,
+p {
+  text-wrap: pretty;
+}
+
+.screen-title,
+.screen-subtitle {
+  text-wrap: balance;
+}
+
+.screen-subtitle {
+  font-style: italic;
+  font-size: clamp(1.05rem, 2.6vw, 1.25rem);
+  color: var(--brown);
+  margin: 12px auto 0;
+  max-width: 34ch;
+}
+
+.flourish {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: var(--rose);
+  margin: 14px 0 0;
+}
+
+.flourish::before,
+.flourish::after {
+  content: '';
+  width: 60px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--rose), transparent);
+}
+
+.screen-footer {
+  margin-top: clamp(32px, 6vw, 56px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  min-height: 70px;
+}
+
+.muted-hint {
+  font-family: var(--font-hand);
+  font-size: 1.25rem;
+  color: var(--brown-soft);
+  margin: 0;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}

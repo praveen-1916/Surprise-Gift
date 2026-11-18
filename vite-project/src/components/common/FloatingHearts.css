@@ -1,0 +1,53 @@
+.floaters {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.floater {
+  position: absolute;
+  bottom: -60px;
+  opacity: 0;
+  line-height: 1;
+  will-change: transform, opacity;
+  animation: floatUp var(--dur) linear var(--delay) infinite;
+}
+
+.floater--petal i {
+  display: block;
+  width: 1em;
+  height: 0.7em;
+  background: currentColor;
+  border-radius: 80% 0 80% 0;
+  opacity: 0.85;
+}
+
+.floater--rose {
+  filter: saturate(0.75) sepia(0.15);
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: var(--op);
+  }
+  85% {
+    opacity: var(--op);
+  }
+  100% {
+    transform: translate3d(var(--drift), -115vh, 0) rotate(var(--spin));
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .floater {
+    animation: none;
+    opacity: 0;
+  }
+}

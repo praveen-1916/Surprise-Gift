@@ -1,0 +1,165 @@
+.letter-screen {
+  perspective: 1600px;
+}
+
+.letter {
+  position: relative;
+  width: min(100%, 680px);
+  padding: clamp(36px, 7vw, 64px) clamp(24px, 6vw, 64px) clamp(32px, 6vw, 52px);
+  background-color: var(--paper);
+  background-image:
+    var(--grain),
+    repeating-linear-gradient(to bottom, transparent 0 35px, rgba(184, 147, 90, 0.14) 35px 36px),
+    radial-gradient(ellipse at 0% 0%, rgba(184, 147, 90, 0.22), transparent 40%),
+    radial-gradient(ellipse at 100% 100%, rgba(184, 147, 90, 0.25), transparent 45%);
+  border-radius: 3px;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.6) inset,
+    var(--shadow-deep);
+  transform-origin: 50% 100%;
+  color: var(--ink);
+}
+
+/* margin line like old stationery */
+.letter::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: clamp(14px, 3vw, 34px);
+  width: 1px;
+  background: rgba(196, 124, 132, 0.4);
+}
+
+.letter__fold {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 33%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(107, 74, 54, 0.15), transparent);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+.letter__date {
+  text-align: right;
+  font-style: italic;
+  color: var(--brown-soft);
+  margin: 0 0 18px;
+}
+
+.letter__salutation {
+  font-family: var(--font-script);
+  font-weight: 400;
+  font-size: clamp(2rem, 6vw, 2.7rem);
+  color: var(--burgundy);
+  margin: 0 0 14px;
+}
+
+.letter__body p {
+  font-family: var(--font-hand);
+  font-size: clamp(1.35rem, 3.6vw, 1.6rem);
+  line-height: 1.5;
+  margin: 0 0 18px;
+  color: #43302a;
+  cursor: text;
+}
+
+.typewriter {
+  cursor: pointer;
+}
+
+.typewriter__caret {
+  display: inline-block;
+  width: 2px;
+  height: 1.05em;
+  margin: 0 1px -0.15em;
+  background: var(--burgundy);
+  animation: caretBlink 0.9s steps(1) infinite;
+}
+
+@keyframes caretBlink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.letter__skip {
+  font-family: var(--font-hand);
+  color: var(--brown-soft);
+  text-align: center;
+  margin: 0;
+  font-size: 1.1rem;
+  opacity: 0.8;
+}
+
+.letter__signoff {
+  text-align: right;
+  margin-top: 10px;
+}
+
+.letter__closing {
+  font-style: italic;
+  font-size: 1.2rem;
+  color: var(--brown);
+  margin: 0;
+}
+
+.letter__signature {
+  font-family: var(--font-script);
+  font-size: clamp(2rem, 6vw, 2.6rem);
+  color: var(--burgundy);
+  margin: 4px 0 0;
+}
+
+.letter__ps {
+  overflow: hidden;
+  font-family: var(--font-hand);
+  font-size: 1.3rem;
+  color: var(--rose);
+  margin: 18px 0 0;
+  padding-top: 14px;
+  border-top: 1px dashed rgba(196, 124, 132, 0.5);
+}
+
+/* the pressed flower at the bottom of the page that hides the P.S. */
+.letter__flower-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  margin-top: 22px;
+}
+
+.letter__flower {
+  border: 0;
+  background: none;
+  cursor: pointer;
+  color: var(--rose);
+  padding: 6px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 0.85;
+}
+
+.letter__flower.is-open {
+  color: var(--burgundy);
+}
+
+.letter__flower-hint {
+  font-family: var(--font-hand);
+  font-size: 0.95rem;
+  color: var(--brown-soft);
+  animation: hintPulse 2.8s ease-in-out infinite;
+}
+
+@keyframes hintPulse {
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 1;
+  }
+}

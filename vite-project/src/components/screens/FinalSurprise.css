@@ -1,0 +1,88 @@
+.finale {
+  overflow: hidden;
+}
+
+.finale::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at 50% 45%, rgba(255, 214, 150, 0.35), transparent 55%);
+  opacity: 0.6;
+  transition: opacity 1.2s ease;
+}
+
+.finale.is-celebrating::before {
+  opacity: 1;
+  background:
+    radial-gradient(circle at 50% 40%, rgba(216, 166, 166, 0.45), transparent 60%),
+    radial-gradient(circle at 50% 45%, rgba(255, 214, 150, 0.3), transparent 50%);
+}
+
+.finale .screen-header,
+.finale__cake-wrap,
+.finale__footer {
+  position: relative;
+  z-index: 1;
+}
+
+.finale__prompt {
+  font-family: var(--font-script);
+  font-size: clamp(2.1rem, 7vw, 3.4rem);
+  line-height: 1.1;
+  color: var(--burgundy);
+  margin: 0;
+}
+
+.finale__title {
+  margin: 0;
+  font-family: var(--font-script);
+  font-weight: 400;
+  font-size: clamp(3rem, 12vw, 6rem);
+  line-height: 1.05;
+  color: var(--burgundy);
+  text-shadow:
+    0 2px 0 rgba(255, 255, 255, 0.6),
+    0 10px 30px rgba(196, 124, 132, 0.45);
+}
+
+.finale__title-heart {
+  display: inline-flex;
+  vertical-align: middle;
+  margin-left: 0.15em;
+  color: var(--rose);
+}
+
+.finale__title-heart svg {
+  width: 0.55em;
+  height: 0.55em;
+}
+
+.finale__cake-wrap {
+  margin-top: 8px;
+}
+
+.finale__cake-wrap .confetti {
+  top: 30%;
+}
+
+.finale__message {
+  max-width: 560px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.finale__message p {
+  margin: 0 0 10px;
+  font-family: var(--font-hand);
+  font-size: clamp(1.35rem, 3.8vw, 1.65rem);
+  line-height: 1.35;
+  color: var(--ink);
+}
+
+.finale__last {
+  margin-top: 14px;
+}

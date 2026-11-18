@@ -1,0 +1,132 @@
+.sky {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 16px 40px;
+  background:
+    radial-gradient(ellipse at 50% 110%, rgba(122, 31, 43, 0.55), transparent 60%),
+    radial-gradient(ellipse at 20% 0%, rgba(60, 40, 80, 0.6), transparent 60%),
+    linear-gradient(180deg, #120c18 0%, #1f1222 55%, #2b1420 100%);
+  color: #f6e6dc;
+}
+
+.sky__bg-stars {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+}
+
+.sky__bg-stars span {
+  position: absolute;
+  border-radius: 50%;
+  background: #fff6e6;
+  animation: twinkle ease-in-out infinite alternate;
+}
+
+@keyframes twinkle {
+  from {
+    opacity: 0.15;
+  }
+  to {
+    opacity: 0.9;
+  }
+}
+
+.sky__twinkle {
+  animation: twinkle 1.4s ease-in-out infinite alternate;
+}
+
+.sky__shooting {
+  position: fixed;
+  top: 12%;
+  left: -10%;
+  width: 140px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #fff6e6);
+  border-radius: 2px;
+  transform: rotate(18deg);
+  opacity: 0;
+  animation: shoot 7s ease-in 2.5s infinite;
+}
+
+@keyframes shoot {
+  0% {
+    transform: translate(0, 0) rotate(18deg);
+    opacity: 0;
+  }
+  3% {
+    opacity: 1;
+  }
+  14% {
+    transform: translate(120vw, 40vh) rotate(18deg);
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.sky__heart {
+  position: relative;
+  width: min(78vw, 46dvh, 420px);
+  height: auto;
+  overflow: visible;
+  flex-shrink: 0;
+}
+
+.sky__initial {
+  font-family: var(--font-script);
+  font-size: 13px;
+  fill: #f2c6c6;
+}
+
+.sky__text {
+  position: relative;
+  text-align: center;
+  max-width: 560px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.sky__line {
+  margin: 0;
+  font-style: italic;
+  font-size: clamp(1.15rem, 3.6vw, 1.45rem);
+  color: rgba(246, 230, 220, 0.85);
+}
+
+.sky__line--strong {
+  font-style: normal;
+  font-family: var(--font-hand);
+  font-size: clamp(1.6rem, 5vw, 2.2rem);
+  color: #fbeee6;
+  line-height: 1.2;
+}
+
+.sky__signature {
+  margin: 14px 0 18px;
+  font-family: var(--font-script);
+  font-size: clamp(1.8rem, 6vw, 2.6rem);
+  color: #f2c6c6;
+}
+
+.sky__replay.vbtn--ghost {
+  background: rgba(255, 245, 230, 0.08);
+  color: #fbeee6;
+  border-color: rgba(255, 240, 225, 0.35);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sky__shooting,
+  .sky__bg-stars span,
+  .sky__twinkle {
+    animation: none;
+  }
+}
