@@ -25,13 +25,13 @@ export const countdown = {
 /* ─── 0b. Secret question lock ─────────────────────────────── */
 export const lock = {
   title: 'Idhi nee kosam matrame',
-  question: 'Nuvvu nannu modatlo emani pilichevi?',
+  question: 'Nenu neeku ichina first gift enti?',
   placeholder: 'nee answer ikkada…',
   button: 'Open cheyyi',
   wrong: 'Kaadhu… malli try cheyyi',
-  hint: 'Hint: "th" tho start avthundhi, chinna word',
+  hint: 'Hint: adhi chusi nuvvu shock ayyav… "v" tho start avthundhi',
   // Any of these answers opens the surprise (case and spaces don't matter).
-  answers: ['thamudu', 'thammudu', 'tammudu', 'tamudu', 'thamuduu'],
+  answers: ['vodka', 'wodka', 'vodca', 'voodka', 'vodkaa', 'vodka bottle'],
 }
 
 /* ─── 1. Secret welcome screen ─────────────────────────────── */
